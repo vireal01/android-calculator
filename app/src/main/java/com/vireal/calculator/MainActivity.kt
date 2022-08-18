@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             resultItem?.append(digit.text)
             isLastElementNumber = true
+            isLastElementDot = false
         }
     }
 
@@ -37,7 +38,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onDecimalPoint(view: View){
-
         if(isDotUsed === true){
         } else if(isLastElementNumber === false){
             resultItem?.append("0.")
