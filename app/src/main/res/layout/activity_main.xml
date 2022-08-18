@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/mainBackground">
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:textSize="40sp"
+        android:text="@string/calc_text"
+        android:textColor="@color/mainText"
+        android:gravity="bottom|end"
+        android:padding="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnSeven"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="7"
+            android:background = "@drawable/roundedbutton"
+            android:onClick="onClickOnDigit"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnEight"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background = "@drawable/roundedbutton"
+            android:onClick="onClickOnDigit"
+            android:text="8"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnNine"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background = "@drawable/roundedbutton"
+            android:text="9"
+            android:onClick="onClickOnDigit"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnDivide"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background = "@drawable/roundedbutton"
+            android:textSize="20sp"
+            android:textColor="@color/contrastText"
+            android:text="/"
+            android:layout_margin="10dp"
+            android:onClick="onAction" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnFour"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="4"
+            android:background = "@drawable/roundedbutton"
+            android:onClick="onClickOnDigit"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnFive"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background = "@drawable/roundedbutton"
+            android:text="5"
+            android:onClick="onClickOnDigit"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnSix"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background = "@drawable/roundedbutton"
+            android:text="6"
+            android:onClick="onClickOnDigit"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnMultiple"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background = "@drawable/roundedbutton"
+            android:text="*"
+            android:textSize="20sp"
+            android:textColor="@color/contrastText"
+            android:layout_margin="10dp"
+            android:onClick="onAction" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnOne"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="1"
+            android:background = "@drawable/roundedbutton"
+            android:onClick="onClickOnDigit"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnTwo"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background = "@drawable/roundedbutton"
+            android:text="2"
+            android:onClick="onClickOnDigit"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnThree"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background = "@drawable/roundedbutton"
+            android:text="3"
+            android:onClick="onClickOnDigit"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnPlus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background = "@drawable/roundedbutton"
+            android:text="+"
+            android:textColor="@color/contrastText"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:onClick="onAction" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="C"
+            android:background = "@drawable/roundedbutton"
+            android:textColor="@color/secondContrastText"
+            android:onClick="onClear"
+            android:textSize="20sp"
+
+            />
+        <Button
+            android:id="@+id/btnZero"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background = "@drawable/roundedbutton"
+            android:text="0"
+            android:onClick="onClickOnDigit"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnDecimalDot"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background = "@drawable/roundedbutton"
+            android:text="."
+            android:onClick="onDecimalPoint"
+            android:textColor="@color/contrastText"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnMinus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background = "@drawable/roundedbutton"
+            android:backgroundTint="@color/contrastText"
+            android:text="-"
+            android:textColor="@color/contrastText"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:onClick="onAction" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnEqual"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background = "@drawable/roundedbutton"
+            android:backgroundTint="@color/contrastText"
+            android:text="="
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:onClick="onTapOnEqual" />
+    </LinearLayout>
+
+</LinearLayout>
