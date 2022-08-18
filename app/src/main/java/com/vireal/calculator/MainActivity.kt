@@ -33,15 +33,16 @@ class MainActivity : AppCompatActivity() {
 
     fun onClear (view: View){
         resultItem?.text = ""
-        isDotUsed = false
-        isLastElementNumber = false
+        returnAllStatesToDefault()
     }
 
     fun onDecimalPoint(view: View){
+
         if(isDotUsed === true){
         } else if(isLastElementNumber === false){
             resultItem?.append("0.")
-        } else {
+        }
+        else {
             resultItem?.append(".")
         }
         isLastElementNumber = false
@@ -50,6 +51,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onAction(view: View){
+        if (isLastElementDot){
+            resultItem?.text = resultItem?.text?.dropLast(1)
+            println(resultItem?.text)
+            isLastElementNumber = true
+            isDotUsed = false
+            isLastElementDot = false
+        }
         val action = view as Button
         if (isLastElementNumber) {
             println(isLastElementNumber)
@@ -60,12 +68,16 @@ class MainActivity : AppCompatActivity() {
                 resultItem?.append(action.text)
                 previousAction = action.text as String?
             }
+
             isLastElementNumber = false
         } else {
             resultItem?.text = resultItem?.text?.dropLast(1)
             resultItem?.append(action.text)
-            previousAction = action.text as String?
+            if(action.text[0] != '-'){
+                previousAction = action.text as String?
+            }
         }
+        isDotUsed = false
     }
 
     private fun calculateAction(statementText:String, action: Button){
@@ -77,6 +89,7 @@ class MainActivity : AppCompatActivity() {
             firstNumberMultiplier = -1
             changedStatementText = statementText.drop(1)
         }
+        println(changedStatementText.split(previousAction!!))
         var (a,b) = changedStatementText.split(previousAction!!)
         var firstNumber = a.toFloat() * firstNumberMultiplier
         var secondNumber = b.toFloat()
@@ -102,12 +115,26 @@ class MainActivity : AppCompatActivity() {
 
     fun onTapOnEqual(view: View){
         val action = view as Button
-        if(resultItem?.text.toString() != "" && previousAction != null &&
-            resultItem?.text.toString().split(previousAction!!).size > 1){
+        var changedText = resultItem?.text.toString()
+        if(changedText.isNotEmpty() && changedText[0] == '-'){
+            changedText = changedText.drop(1)
+        }
+        if(resultItem?.text.toString() != "" &&
+            previousAction != null &&
+            resultItem?.text.toString().dropLast(1) !== "." &&
+            changedText.split(previousAction!!).size > 1){
             calculateAction(resultItem?.text.toString(), action)
             isLastElementNumber = true
             previousAction = null
             isDotUsed = false
+            isLastElementDot = false
         }
+    }
+
+    private fun returnAllStatesToDefault(){
+        isDotUsed = false
+        isLastElementNumber = false
+        isLastElementDot = false
+        previousAction = null
     }
 }
